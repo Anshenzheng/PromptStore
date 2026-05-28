@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app">
+    <!-- Tab Bar -->
+    <div class="tab-bar">
+      <button class="tab-btn active" data-tab="list" data-i18n="tabList"></button>
+      <button class="tab-btn" data-tab="add" data-i18n="tabAdd"></button>
+      <button class="tab-btn" data-tab="settings" data-i18n="tabSettings"></button>
+    </div>
+
+    <!-- List Tab -->
+    <div class="tab-content active" id="tab-list">
+      <div class="search-bar">
+        <input type="text" id="searchInput" class="search-input" data-i18n-placeholder="searchPlaceholder">
+        <button id="refreshBtn" class="icon-btn" title="Refresh">&#8635;</button>
+      </div>
+      <div id="fileList" class="file-list">
+        <div class="loading" data-i18n="loading"></div>
+      </div>
+    </div>
+
+    <!-- Add Tab -->
+    <div class="tab-content" id="tab-add">
+      <div class="form-group">
+        <label class="form-label" data-i18n="promptName"></label>
+        <input type="text" id="promptName" class="form-input" data-i18n-placeholder="promptNamePlaceholder">
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-i18n="promptContent"></label>
+        <textarea id="promptContent" class="form-textarea" rows="6" data-i18n-placeholder="promptContentPlaceholder"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="form-label" data-i18n="folderName"></label>
+        <input type="text" id="folderName" class="form-input" data-i18n-placeholder="folderNamePlaceholder">
+      </div>
+      <button id="savePromptBtn" class="btn btn-primary btn-full" data-i18n="addPrompt"></button>
+      <div id="addMessage" class="message" style="display:none;"></div>
+    </div>
+
+    <!-- Settings Tab -->
+    <div class="tab-content" id="tab-settings">
+      <div id="configSummary" class="config-summary">
+        <div class="loading" data-i18n="loading"></div>
+      </div>
+      <button id="openSettingsBtn" class="btn btn-primary btn-full" data-i18n="openFullSettings"></button>
+    </div>
+  </div>
+
+  <!-- Modal Overlay -->
+  <div id="modal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalTitle" class="modal-title"></h3>
+        <button id="modalClose" class="icon-btn">&times;</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-footer" id="modalFooter"></div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" style="display:none;"></div>
+
+  <script src="github.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
